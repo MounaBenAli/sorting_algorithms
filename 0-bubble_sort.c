@@ -9,11 +9,12 @@
 
 void swap(int *xp, int *yp)
 {
-	int temp = *xp;
+	int temp;
 
-	*xp = *yp;
-	*yp = temp;
-}
+	temp = *yp;
+	*yp = *xp;
+	*xp = temp;
+	}
 
 /**
  * bubble_sort - sorts an array of int in ascending order
@@ -25,7 +26,7 @@ void bubble_sort(int *array, size_t size)
 {
 	unsigned int i, j;
 
-	if (array == NULL || size <= 0)
+	if (!array)
 		return;
 
 	for (i = 0; i < size - 1 ; i++)
@@ -34,8 +35,8 @@ void bubble_sort(int *array, size_t size)
 		{
 			if (array[j] > array[j + 1])
 			{
-			swap(&array[j], &array[j + 1]);
-			print_array(array, size);
+				swap(&array[j], &array[j + 1]);
+				print_array(array, size);
 			}
 		}
 	}
