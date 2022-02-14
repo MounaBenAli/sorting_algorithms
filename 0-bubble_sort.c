@@ -14,7 +14,6 @@ void swap(int *xp, int *yp)
 	*xp = *yp;
 	*yp = temp;
 }
-
 /**
  * bubble_sort - sorts an array of int in ascending order
  * @array: Array to sort
