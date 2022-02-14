@@ -1,6 +1,21 @@
 #include "sort.h"
 
 /**
+* swap - swaps the place of two integers
+* @xp: pointer to first integer
+* @yp: pointer to second integer
+* Return: nothing
+*/
+
+void swap(int *xp, int *yp)
+{
+	int temp = *xp;
+
+	*xp = *yp;
+	*yp = temp;
+}
+
+/**
  * bubble_sort - sorts an array of int in ascending order
  * @array: Array to sort
  * @size: Size of the array
