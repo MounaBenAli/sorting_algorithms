@@ -11,26 +11,28 @@
 int lomuto_partition(int *array, int low, int high, size_t size)
 {
 
-int pivot, i, j;
+	int pivot, i, j;
 
-/*select the rightmost element as pivot*/
-pivot = array[high];
-/*pointer for greater element*/
-i = low - 1;
-/*Traverse each element of the array and compare with pivot*/
-for (j = low; j <= high; j++)
-{
-if (array[j] <= pivot)
-{
-i++;
-if (i != j)
-{
-swap_array(array, i, j);
-print_array(array, size);
-}
-}
-}
-return (i);
+	/*select the rightmost element as pivot*/
+	pivot = array[high];
+
+	/*pointer for greater element*/
+	i = low - 1;
+
+	/*Traverse each element of the array and compare with pivot*/
+	for (j = low; j <= high; j++)
+	{
+		if (array[j] <= pivot)
+		{
+			i++;
+		if (i != j)
+		{
+			swap_array(array, i, j);
+			print_array(array, size);
+		}
+		}
+	}
+	return (i);
 }
 
 /**
@@ -43,11 +45,11 @@ return (i);
 
 void swap_array(int *array, int a, int b)
 {
-int temp;
+	int temp;
 
-temp = array[a];
-array[a] = array[b];
-array[b] = temp;
+	temp = array[a];
+	array[a] = array[b];
+	array[b] = temp;
 }
 
 /**
@@ -62,19 +64,20 @@ array[b] = temp;
 
 void _quickSort(int *array, int low, int high, size_t size)
 {
-int par;
-if (low < high)
-{
-/**find the pivot element such that**/
-/*elements smaller than pivot are on left of pivot*/
-/*elements greater than pivot are on right of pivot*/
+	int par;
 
-par = lomuto_partition(array, low, high, size);
-/*recursive call on the left of pivot*/
-_quickSort(array, low, par - 1, size);
+	if (low < high)
+	{
+	/**find the pivot element such that**/
+	/*elements smaller than pivot are on left of pivot*/
+	/*elements greater than pivot are on right of pivot*/
 
-/*recursive call on the right of pivot*/
-_quickSort(array, par + 1, high, size);
+	par = lomuto_partition(array, low, high, size);
+	/*recursive call on the left of pivot*/
+	_quickSort(array, low, par - 1, size);
+
+	/*recursive call on the right of pivot*/
+	_quickSort(array, par + 1, high, size);
 }
 }
 
@@ -88,14 +91,15 @@ _quickSort(array, par + 1, high, size);
 
 void quick_sort(int *array, size_t size)
 {
-int low;
-int high;
-if (!array || size == 0)
-return;
+	int low;
+	int high;
 
-low = 0;
-high = size - 1;
+	if (!array || size == 0)
+		return;
 
-_quickSort(array, low, high, size);
+	low = 0;
+	high = size - 1;
+
+	_quickSort(array, low, high, size);
 
 }
