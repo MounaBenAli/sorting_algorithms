@@ -30,7 +30,11 @@ void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 
+
 /* Prototypes for helper functions */
 void swap(int *xp, int *yp);
+void swap_array(int *array, int a, int b);
+int lomuto_partition(int *array, int low, int high, size_t size);
+void _quickSort(int *array, int low, int high, size_t size);
 
 #endif
